@@ -1,8 +1,8 @@
-# Ex.No:1a  			Study of Socket Programming
+## NAME: RAGUL K R
+## REG NO: 212224240123
 
-Register Number: 212221040135
+# Ex.No:1a  Study of Socket Programming
 
-Name: Ragupathi P
 ## Aim: 
 To perform a study on Socket Programming
 ## Introduction:
@@ -55,43 +55,40 @@ Socket programming finds applications in various domains, including web developm
 3.	File Transfer Protocol: Protocols like FTP (File Transfer Protocol) utilize socket programming for transferring files between a client and a server.
 4.	Networked Games: Online multiplayer games rely on socket programming to facilitate communication between game clients and servers.
 5.	RPC mechanisms: which allow processes to execute code on a remote server, often use socket programming for communication.
+6.	
 
-## Program:
+## Program
 
 ## Client:
+
 ```
 import socket
+from datetime import datetime
 s=socket.socket()
 s.bind(('localhost',8000))
 s.listen(5)
 c,addr=s.accept()
-while True:
-i=input("Enter a data: ")
-Thus the study of Socket Programming Completed Successfully
-c.send(i.encode())
+print("Client Address : ",addr)
+now = datetime.now()
+c.send(now.strftime("%d/%m/%Y %H:%M:%S").encode())
 ack=c.recv(1024).decode()
 if ack:
-print(ack)
-continue
-else:
+    print(ack)
 c.close()
-break
 ```
+
 ## Server:
 ```
- import socket
+import socket
 s=socket.socket()
-s.connect(('localhost',8000))
-while True:
+s.connect(('localhost',3000))
+print(s.getsockname())
 print(s.recv(1024).decode())
-s.send("Acknowledgement Recived".encode())
+s.send("acknowledgement recived from the server".encode())
 ```
-## Output:
-## Client:
-![image](https://github.com/Ragupathi1/SocketStudy/assets/143526042/62be0e07-a518-4731-8f06-8460d1937b51)
 
-## Server
-![image](https://github.com/Ragupathi1/SocketStudy/assets/143526042/8bf8c265-9082-4e89-b9d0-50e04d658be3)
+## Output:
+![Screenshot 2024-09-12 052652](https://github.com/user-attachments/assets/4e8d445c-c03b-4fb4-8ac9-ff08cfadb1de)
 
 ## Result:
 Thus the study of Socket Programming Completed Successfully
